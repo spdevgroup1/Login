@@ -2,31 +2,13 @@
 <html>
 <body>
 
-<h2>Update data.txt</h2>
+<h2>WEBSITE</h2>
 
-<input id="textInput" type="text" placeholder="Enter text" required>
-<button onclick="send()">Save</button>
+<a href="page2.html">
+  <button>Go to Page 2</button>
+</a>
 
-<script>
-function send() {
-  const content = document.getElementById("textInput").value;
 
-  fetch("https://api.github.com/repos/spdevgroup1/send/dispatches", {
-    method: "POST",
-    headers: {
-      "Accept": "application/vnd.github+json",
-      "Authorization": "Bearer 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",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      event_type: "update_text",
-      client_payload: { content }
-    })
-  })
-  .then(() => alert("Submitted"))
-  .catch(err => alert("Error: " + err));
-}
-</script>
 
 </body>
 </html>
