@@ -1,6 +1,32 @@
-<h4>11:26 THU</h4>
-<p>A former British soldier has been arrested for allegedly helping Russia assassinate Ukrainian politicians in exchange for money, intelligence officials said.
+<!DOCTYPE html>
+<html>
+<body>
 
-Ross David Cutmore was detained by Ukraine’s state security service in October after he was accused of importing and doling out weapons that were used in the slayings of three prominent Ukrainians, the Kyiv Independent reported.
+<h2>Update data.txt</h2>
 
-Cutmore, who had experience from serving in the British Army and a stint in the Middle East, went to Ukraine last year to help train Ukrainian army personnel as a military instructor.</p>
+<input id="textInput" type="text" placeholder="Enter text" required>
+<button onclick="send()">Save</button>
+
+<script>
+function send() {
+  const content = document.getElementById("textInput").value;
+
+  fetch("https://api.github.com/repos/spdevgroup1/send/dispatches", {
+    method: "POST",
+    headers: {
+      "Accept": "application/vnd.github+json",
+      "Authorization": "Bearer YOUR_TOKEN_HERE",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      event_type: "update_text",
+      client_payload: { content }
+    })
+  })
+  .then(() => alert("Submitted"))
+  .catch(err => alert("Error: " + err));
+}
+</script>
+
+</body>
+</html>
