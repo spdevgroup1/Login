@@ -10,6 +10,13 @@ if (localStorage.getItem("loggedIn") !== "true") {
 
 <h1>Welcome to the dashboard</h1>
 <p>You are logged in.</p>
+<button onclick="logout()">Logout</button>
 
+<script>
+function logout() {
+  localStorage.removeItem("loggedIn");
+  window.location.href = "login.html";
+}
+</script>
 </body>
 </html>
